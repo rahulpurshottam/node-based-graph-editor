@@ -8,13 +8,28 @@ export const SubmitButton = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('https://node-based-graph-editor-2.onrender.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ nodes, edges }),
-      });
+      // Ensure nodes/edges are always arrays
+      const payload = {
+        nodes: nodes || [],
+        edges: edges || [],
+      };
+
+      console.log("Submitting payload:", payload);
+
+      const response = await fetch(
+        'https://node-based-graph-editor-2.onrender.com/pipelines/parse',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Backend error: ${response.status}`);
+      }
 
       const result = await response.json();
 
@@ -33,6 +48,7 @@ export const SubmitButton = () => {
       );
     } catch (error) {
       alert('Error submitting pipeline: ' + error.message);
+      console.error("Submit error:", error);
     }
   };
 
