@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.libertinus-serif-bold {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing:0.05em;
+}
+
+.node-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.node-input,
+.node-select,
+.node-textarea {
+  @apply w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.node-textarea {
+  @apply min-h-[40px] resize-none font-mono text-sm;
+}
+
+.node-response {
+  @apply mt-2 p-2 bg-gray-100 rounded text-xs whitespace-pre-wrap;
+}
+
+.node-variables {
+  @apply mt-2 text-xs text-gray-500;
+}
+
+.draggable-node {
+  @apply cursor-grab;
+}
+
+.draggable-node:active {
+  @apply cursor-grabbing;
+}
+
+.sidebar {
+  @apply w-64 h-screen flex flex-col bg-white border-r border-gray-200;
+}
+
+.sidebar-header{
+  @apply p-4 border-b border-gray-200;
+}
+
+.sidebar-nodes {
+  @apply flex-1 p-4 overflow-y-auto;
+}
+
+.node-box {
+  @apply mb-2 p-2 rounded;
+}
+
+.sidebar-tips {
+  @apply p-4 bg-gray-50 border-t border-gray-200;
+}
+
+
+
+
+
+
